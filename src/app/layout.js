@@ -21,6 +21,8 @@ export const metadata = {
   description: 'High-end financial advisory and rigorous reporting tailored for complex enterprises.',
 };
 
+import Script from 'next/script';
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`light ${manrope.variable} ${notoSerif.variable}`}>
@@ -29,6 +31,10 @@ export default function RootLayout({ children }) {
       </head>
       <body className="bg-surface text-on-surface font-body antialiased selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
         {children}
+        <Script 
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

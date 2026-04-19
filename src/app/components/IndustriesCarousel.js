@@ -3,123 +3,152 @@
 import { useRef, useCallback } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+// ─── Data ─────────────────────────────────────────────────────────────────────
 
 const CARDS = [
   {
     title: "Manufacturing",
-    description:
-      "Optimizing supply chains and capital structure for industrial resilience in a global market.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB3p6Wh5yj2GEoQTaVV3NSBIgoAr3ywE5y4T9kMPGedS0LC19MfGwlKDOE3wUl9adyqBxjtCU2PAWq78cLxlnLbeQBHprr5zul03AqzqBXThH9GxopIEzklBDU_42k5xqIv22w5bCPa9NpMkX5YtSW3jv9ht-FYidnB2OEBNMDLcmkoA3dpZGgGsf6x4KInD-DkNUh9lDH4LV1mpyFK90roYG3KozgGGZHdWEKMqrdHje7fwNtlDH35UWka9hkGzj8amo7oxduX1rA",
+    icon: "factory",
+    description: "Optimizing supply chains and capital structure for industrial resilience in a global market.",
+    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&fit=crop",
   },
   {
     title: "Technology",
-    description:
-      "Strategic advisory for fast-scaling digital enterprises and complex SaaS revenue models.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAQ_PKv3wgs3ersW3Uo4FYMeLS_GcPYuJr6VReC2Iz9nncdw8yrbxlovUwLGvEcDA4Ll3eLb3Fu9pzYVtIx7q0-Wq_5iJlbvLxenyNJYaLV8waaB_lwC6E538ip2Sd3NGqrf7nx5wQIsWSCBsp3jkzLbqfSMZpuxHEo0vNnVGXMTIsqf613NvKkrfkn3cpABYzih40dCO04qi3v9BMyanNsxR1HonDStarV18q1ra2M3f5Tsdrgy3qxf7M5f5jyrsOkUT6TKM9xx4w",
+    icon: "memory",
+    description: "Strategic advisory for fast-scaling digital enterprises and complex SaaS revenue models.",
+    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80&fit=crop",
   },
   {
     title: "Healthcare",
-    description:
-      "Navigating regulatory compliance and financial modeling for large-scale medical providers.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCGk3Wd0Oyn2NvltVnNZycH9XlKQsTdQFIUlSSQLPMEKxZXJOA-JioXgqM2vBkBsIAgk6ZLRCjv96PWyqYXCbpyLEujjlqmmMwBtAc2o-4Ji9UyMF5NirAoSWsexaLNRa8gqi6MV7A-wtN2PtR5bpQfBIJgu-ejOaquQDAd0co03YDMAXnp7CslFgenKXFJbje-YLy9ZHWfnouwf2Iz1e1oOC_DHHIpUxz3jChSElwD3YvlSPuIomzVv9uD2dpa3UzbEyol5YSU00",
+    icon: "health_and_safety",
+    description: "Navigating regulatory compliance and financial modeling for large-scale medical providers.",
+    img: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=900&q=80&fit=crop",
   },
   {
     title: "Real Estate",
-    description:
-      "Tax-efficient structures for commercial portfolios and residential developments.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB0xNGBPzPT4WVNDH8HVHbdaZzfUGWRPTXhvDzQWvcWY9TWS1HkdB1T4MXdoOJRCEF7xjihVHJeRZxKjB4CW6JaVbOMfPW5hYeCnKoyXLk5xbgjp6JXoQDcw_nGcHkk-GdSEKBY7qtRsRE-cIDFPIggf7nrzDLXMX9WAXFanjWJ9ns_LY3Kgk_2Wi8wyK-6EZ0niwaSWZ8bgEw2HBHWHgwGBAB6bI3-uwLEs2ObkFAkV0X61B-WocZlXdGHdSYZgLIeHDOJDZq5nZ4",
+    icon: "apartment",
+    description: "Tax-efficient structures for commercial portfolios and residential developments.",
+    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80&fit=crop",
   },
   {
     title: "Energy",
-    description:
-      "Financing strategies and risk mitigation for the transition to renewable resources.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB462AFOmmKatNDe5GJUSO3g3wtXhfVj7atd7YsBC11drvSxPj5Ef0aB_v0-s8CizGjWOaSXVu_XUq1EnQtIY9c4-Sz1UxTa2gmndr0-UzkzDb9VcGuy-U-dYsfPVQlwSjlaMBaEFdyOI-HZAcRFNRKE-VrVmvixZGMDG1JDaQ4TOpAO0wBzk_PQ2O_lFJVGwxx9wike2XcdRphI9gOtsE76WaSkxZQlN2ebMABGN09KM4ZsMk9aDrRaThTnN2c8Y2EybxQkhtxYwQ",
+    icon: "bolt",
+    description: "Financing strategies and risk mitigation for the transition to renewable resources.",
+    img: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80&fit=crop",
   },
   {
     title: "Financial Services",
-    description:
-      "End-to-end advisory for banks, asset managers, and insurance groups navigating macro volatility.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDl35xu9xFH6GAmLh0jaoC_bQO6tluvQ-1RyV2maVVU1hdY9e2S8Z21AbdfNs7PzBLcr1K5JfwcSuEchgbRwpe2rAtJSA2u5eFFSVFQbeOpXRSkOAeX8Usi59KYsosBNDZXK4WrK5KMh2Eh46OHazAzZo7hVXQ5aRkvvpWwaJPPau8mlN5CyRyYlsV9nhqQ3-laWaF__kJvf0DfHe2UHXOhJaHp7liKYuTMLTyUhoO2rJESHFN2eWfYhOzTPW6-_3g3z4dYvF1_7u4",
+    icon: "account_balance",
+    description: "End-to-end advisory for banks, asset managers, and insurance groups navigating macro volatility.",
+    img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80&fit=crop",
   },
 ];
 
-// Duplicate cards for seamless infinite scroll
+// ─── Premium Card (shared by desktop + mobile) ────────────────────────────────
+
+function IndustryCard({ card, className = "" }) {
+  return (
+    <div
+      className={`relative overflow-hidden rounded-3xl ${className}`}
+      style={{ background: "#00193c" }}
+    >
+      {/* Full-bleed image */}
+      <img
+        src={card.img}
+        alt={card.title}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ opacity: 0.55 }}
+      />
+
+      {/* Gradient overlay — dark navy at bottom, fades up */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(160deg, rgba(0,25,60,0.25) 0%, rgba(0,25,60,0.7) 50%, rgba(0,25,60,0.97) 100%)",
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col h-full p-8">
+
+        {/* Top row: icon */}
+        <div className="flex items-start justify-between">
+          <div
+            className="w-14 h-14 rounded-full flex items-center justify-center"
+            style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}
+          >
+            <span className="material-symbols-outlined text-white" style={{ fontSize: 28 }}>
+              {card.icon}
+            </span>
+          </div>
+        </div>
+
+        {/* Bottom content block */}
+        <div className="mt-auto">
+          <h3 className="text-white font-headline text-2xl font-bold tracking-tight mb-2">
+            {card.title}
+          </h3>
+          <p className="text-white font-body text-base leading-relaxed opacity-85 max-w-[95%]">
+            {card.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Desktop: GSAP Infinite Auto-scroll Ticker ────────────────────────────────
+
 const ALL_CARDS = [...CARDS, ...CARDS];
+const CARD_WIDTH = 360; // card width + gap
+const LOOP_TOTAL = CARDS.length * CARD_WIDTH;
 
-const CARD_WIDTH = 396; // 380px card + 16px gap
-const LOOP_TOTAL = CARDS.length * CARD_WIDTH; // distance of one full set
-
-export default function IndustriesCarousel() {
+function DesktopCarousel() {
   const trackRef = useRef(null);
   const tweenRef = useRef(null);
-  const xRef = useRef(0); // current pixel offset
+  const xRef = useRef(0);
 
   useGSAP(() => {
     const track = trackRef.current;
     if (!track) return;
 
-    // Start auto-scroll from 0
     tweenRef.current = gsap.to(xRef, {
       current: -LOOP_TOTAL,
-      duration: 30,
+      duration: 32,
       ease: "none",
       repeat: -1,
       onUpdate: () => {
-        // Wrap: keep x between -LOOP_TOTAL and 0
         let x = xRef.current % -LOOP_TOTAL;
         if (x > 0) x -= LOOP_TOTAL;
         gsap.set(track, { x });
       },
     });
 
-    return () => {
-      tweenRef.current?.kill();
-    };
+    return () => tweenRef.current?.kill();
   }, []);
 
   const nudge = useCallback((direction) => {
     if (!tweenRef.current) return;
-
-    // Temporarily slow down / speed the tween by adjusting timeScale
-    // Then snap x by adjusting the target with a short tween
     const track = trackRef.current;
     const currentX = gsap.getProperty(track, "x");
     const targetX = currentX + direction * CARD_WIDTH;
-
-    // Pause auto-loop briefly, animate to target, then resume
     tweenRef.current.pause();
     gsap.to(track, {
       x: targetX,
       duration: 0.55,
       ease: "power3.inOut",
       onUpdate: () => {
-        // Keep xRef in sync so the loop formula stays correct on resume
         xRef.current = gsap.getProperty(track, "x");
       },
-      onComplete: () => {
-        tweenRef.current.resume();
-      },
+      onComplete: () => tweenRef.current.resume(),
     });
   }, []);
 
   return (
-    <section
-      className="py-40 bg-surface-container-low border-y border-outline-variant/20 overflow-hidden"
-      id="industries-section"
-    >
-      {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
-        <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary tracking-tight split-animate-scroll">
-          Industries We Serve
-        </h2>
-        <p className="font-body text-lg text-on-surface-variant mt-6 max-w-2xl mx-auto leading-relaxed split-animate-scroll">
-          Architecting precision-engineered solutions across the global economic
-          landscape, from industrial manufacturing to digital-first technology
-          sectors.
-        </p>
-      </div>
-
-      {/* Track */}
+    <>
       <div className="relative w-full overflow-hidden">
         <div
           ref={trackRef}
@@ -127,33 +156,13 @@ export default function IndustriesCarousel() {
           style={{ width: `${ALL_CARDS.length * CARD_WIDTH}px` }}
         >
           {ALL_CARDS.map((card, i) => (
-            <div
-              key={i}
-              className="flex-none w-[380px] bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden group shadow-sm hover:shadow-xl transition-shadow duration-500"
-            >
-              <div className="h-56 overflow-hidden relative">
-                <img
-                  alt={card.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  src={card.img}
-                />
-                <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors" />
-              </div>
-              <div className="p-8">
-                <h3 className="font-headline text-2xl font-bold text-primary mb-4">
-                  {card.title}
-                </h3>
-                <p className="text-on-surface-variant font-body text-sm leading-relaxed mb-6">
-                  {card.description}
-                </p>
-                <div className="h-1 w-12 bg-primary/20 group-hover:w-full transition-all duration-500 rounded-full" />
-              </div>
+            <div key={i} className="flex-none" style={{ width: CARD_WIDTH - 16 }}>
+              <IndustryCard card={card} className="h-[420px] group hover:scale-[1.01] transition-transform duration-500" />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Controls */}
       <div className="max-w-7xl mx-auto px-6 mt-10 flex justify-end gap-4">
         <button
           onClick={() => nudge(1)}
@@ -173,6 +182,104 @@ export default function IndustriesCarousel() {
             east
           </span>
         </button>
+      </div>
+    </>
+  );
+}
+
+// ─── Mobile: Framer Motion Sticky Stack ───────────────────────────────────────
+//
+//  ① Plain <div>  → position:sticky + z-index   (no transforms here)
+//  ② motion.div   → scale only                  (no position here)
+//  Container: plain block, explicit height, NO overflow:hidden
+
+const STICKY_BASE = 60;
+const STICKY_STEP = 26;
+const CONTAINER_HEIGHT = CARDS.length * 600;
+
+function MobileCard({ card, i, progress }) {
+  const rangeStart = i / CARDS.length;
+  const targetScale = Math.max(0.78, 1 - (CARDS.length - 1 - i) * 0.044);
+  const scale = useTransform(progress, [rangeStart, 1], [1, targetScale]);
+
+  return (
+    <div
+      style={{
+        position: "sticky",
+        top: STICKY_BASE + i * STICKY_STEP,
+        zIndex: i + 1,
+      }}
+    >
+      <motion.div style={{ scale, transformOrigin: "top center" }}>
+        <IndustryCard card={card} className="h-[420px]" />
+      </motion.div>
+    </div>
+  );
+}
+
+function MobileStack() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        position: "relative",
+        height: CONTAINER_HEIGHT,
+        padding: "0 16px",
+        maxWidth: 480,
+        margin: "0 auto",
+      }}
+    >
+      {CARDS.map((card, i) => (
+        <MobileCard
+          key={card.title}
+          card={card}
+          i={i}
+          progress={scrollYProgress}
+        />
+      ))}
+    </div>
+  );
+}
+
+// ─── Default Export ────────────────────────────────────────────────────────────
+
+export default function IndustriesCarousel() {
+  return (
+    // NO overflow-hidden on section — breaks position:sticky on descendants
+    <section
+      className="bg-surface-container-low border-y border-outline-variant/20 pt-20"
+      id="industries-section"
+    >
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
+        <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary tracking-tight split-animate-scroll">
+          Industries We Serve
+        </h2>
+        <p className="font-body text-lg text-on-surface-variant mt-6 max-w-2xl mx-auto leading-relaxed split-animate-scroll">
+          Architecting precision-engineered solutions across the global economic
+          landscape, from industrial manufacturing to digital-first technology
+          sectors.
+        </p>
+      </div>
+
+      {/* Desktop: GSAP auto-scroll ticker */}
+      <div className="hidden md:block pb-20">
+        <DesktopCarousel />
+      </div>
+
+      {/* Mobile: sticky card stack */}
+      <div className="block md:hidden pb-4">
+        <p className="text-center text-[10px] uppercase tracking-widest text-on-surface-variant/40 mb-6 font-label">
+          scroll to explore
+        </p>
+        <MobileStack />
+        <div className="h-20" />
       </div>
     </section>
   );

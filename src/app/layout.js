@@ -22,6 +22,7 @@ export const metadata = {
 };
 
 import Script from 'next/script';
+import WhatsAppFloater from './components/WhatsAppFloater';
 
 export default function RootLayout({ children }) {
   return (
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="bg-surface text-on-surface font-body antialiased selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
         {children}
+        <WhatsAppFloater />
         <Script 
           src="https://assets.calendly.com/assets/external/widget.js"
           strategy="lazyOnload"

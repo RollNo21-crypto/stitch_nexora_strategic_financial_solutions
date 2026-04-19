@@ -185,6 +185,34 @@ export default function CaseStudy() {
                 Cheap designs rely on "more." Premium designs rely on "less." We aggressively stripped away arbitrary category pills, generic percentage statistics, and superfluous divider lines. By utilizing negative whitespace as a structural element, we force the user's retina exactly where we want it: on the copywriting and the CTA buttons. This "Apple-esque" minimalism commands a higher perceived brand valuation.
               </p>
             </div>
+
+            <div className="bg-surface-container-low border border-primary/20 rounded-3xl p-8 md:p-10 shadow-lg shadow-primary/5 hover:shadow-primary/10 transition-shadow duration-500 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+              <h3 className="text-xl font-bold mb-4">Architected Strictly From Scratch</h3>
+              <p className="text-on-surface-variant leading-relaxed mb-8">
+                Before writing a single line of React code, the entire User Interface and User Experience was blueprinted from scratch. We did not rely on generic, pre-defined templates or standard UI kits. Every layout decision was custom-tailored to align flawlessly with the client's brand identity.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a 
+                  href="https://stitch.withgoogle.com/projects/6675819724976788688" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-surface border border-outline-variant/30 rounded-lg text-sm font-label uppercase tracking-widest text-on-surface hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all shadow-sm"
+                >
+                  <span className="material-symbols-outlined text-lg">design_services</span>
+                  Project Blueprint
+                </a>
+                <a 
+                  href="https://stitch.withgoogle.com/preview/6675819724976788688?node-id=9aeee4265d9443a8adb0da65b3fd6221" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-on-primary rounded-lg text-sm font-label uppercase tracking-widest hover:bg-primary-fixed-dim transition-all shadow-md hover:shadow-lg"
+                >
+                  <span className="material-symbols-outlined text-lg">web</span>
+                  Interactive Prototype
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 

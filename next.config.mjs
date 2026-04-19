@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    // Bypasses ESLint errors during Vercel builds (fixes build failure for img warnings)
-    ignoreDuringBuilds: true,
-  },
+  /* config options here */
 };
 
 export default nextConfig;

@@ -61,7 +61,7 @@ export default function CaseStudy() {
             Project Architecture Analysis
           </p>
         </div>
-        
+
         <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 leading-[1.1]">
           The Nexora Digital <br className="hidden md:block" /> Substructure.
         </h1>
@@ -71,11 +71,11 @@ export default function CaseStudy() {
       </header>
 
       <div className="max-w-4xl mx-auto px-6 pb-40 space-y-32">
-        
+
         {/* Section 1: Architecture & Performance */}
         <section className="reveal-section group">
           <div className="flex flex-col md:flex-row gap-6 mb-10">
-             <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary shrink-0 border border-primary/20">
+            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary shrink-0 border border-primary/20">
               <span className="material-symbols-outlined text-3xl">memory</span>
             </div>
             <div>
@@ -85,7 +85,7 @@ export default function CaseStudy() {
               </p>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:border-primary/30">
               <span className="material-symbols-outlined text-primary mb-4 text-3xl">speed</span>
@@ -94,7 +94,7 @@ export default function CaseStudy() {
                 The platform is engineered on <strong>Next.js 15</strong>, leveraging Server-Side Rendering. Unlike traditional apps that force the user's browser to build the page, SSR pre-compiles the interface on the server. This guarantees near-instantaneous First Contentful Paint (FCP) metrics, drastically reducing bounce rates for high-net-worth mobile traffic.
               </p>
             </div>
-            
+
             <div className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:border-primary/30">
               <span className="material-symbols-outlined text-primary mb-4 text-3xl">public</span>
               <h3 className="text-xl font-bold mb-3">Vercel Global Edge CDN</h3>
@@ -117,8 +117,8 @@ export default function CaseStudy() {
 
         {/* Section 2: Aesthetics & UX */}
         <section className="reveal-section group">
-           <div className="flex flex-col md:flex-row gap-6 mb-10">
-             <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary shrink-0 border border-primary/20">
+          <div className="flex flex-col md:flex-row gap-6 mb-10">
+            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary shrink-0 border border-primary/20">
               <span className="material-symbols-outlined text-3xl">brush</span>
             </div>
             <div>
@@ -160,7 +160,7 @@ export default function CaseStudy() {
               </div>
             </div>
 
-             <div className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl transition-shadow duration-500">
+            <div className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl transition-shadow duration-500">
               <h3 className="text-xl font-bold mb-4">Editorial Typography Pairing</h3>
               <p className="text-on-surface-variant leading-relaxed mb-6">
                 Typography dictates how data is digested. We implemented a sophisticated dual-font strategy:
@@ -191,21 +191,22 @@ export default function CaseStudy() {
               <h3 className="text-xl font-bold mb-4">Architected Strictly From Scratch</h3>
               <p className="text-on-surface-variant leading-relaxed mb-8">
                 Before writing a single line of React code, the entire User Interface and User Experience was blueprinted from scratch. We did not rely on generic, pre-defined templates or standard UI kits. Every layout decision was custom-tailored to align flawlessly with the client's brand identity.
+                Heatmap of Nexora - also added within the project
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="https://stitch.withgoogle.com/projects/6675819724976788688" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://stitch.withgoogle.com/projects/6675819724976788688"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-surface border border-outline-variant/30 rounded-lg text-sm font-label uppercase tracking-widest text-on-surface hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all shadow-sm"
                 >
                   <span className="material-symbols-outlined text-lg">design_services</span>
                   Project Blueprint
                 </a>
-                <a 
-                  href="https://stitch.withgoogle.com/preview/6675819724976788688?node-id=9aeee4265d9443a8adb0da65b3fd6221" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://stitch.withgoogle.com/preview/6675819724976788688?node-id=9aeee4265d9443a8adb0da65b3fd6221"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-on-primary rounded-lg text-sm font-label uppercase tracking-widest hover:bg-primary-fixed-dim transition-all shadow-md hover:shadow-lg"
                 >
                   <span className="material-symbols-outlined text-lg">web</span>
@@ -219,7 +220,7 @@ export default function CaseStudy() {
         {/* Section 3: Animations */}
         <section className="reveal-section group">
           <div className="flex flex-col md:flex-row gap-6 mb-10">
-             <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary shrink-0 border border-primary/20">
+            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary shrink-0 border border-primary/20">
               <span className="material-symbols-outlined text-3xl">animation</span>
             </div>
             <div>
@@ -235,14 +236,14 @@ export default function CaseStudy() {
               <div className="mb-6 py-2 px-4 inline-flex rounded-lg bg-white/5 border border-white/10 w-max text-xs font-mono text-primary">import gsap from "gsap"</div>
               <h3 className="text-2xl font-bold mb-4">GSAP Desktop Engine</h3>
               <p className="text-on-surface-variant text-sm leading-relaxed mb-6 flex-grow">
-                A standard service grid forces a user to actively click through pages to see what you offer. We eliminated user-fatigue by building a custom <strong>GSAP Infinite Ticker</strong> for the "Industries We Serve" component. 
+                A standard service grid forces a user to actively click through pages to see what you offer. We eliminated user-fatigue by building a custom <strong>GSAP Infinite Ticker</strong> for the "Industries We Serve" component.
                 <br /><br />
                 This mathematics-driven carousel runs at 60 FPS, automatically scrolling your entire cross-industry expertise across the user's peripheral vision. It ensures maximum data exposure automatically. Furthermore, every component explicitly monitors scroll-depth to calculate elegant fade-up reveals, ensuring the site "builds itself" as the user explores.
               </p>
             </div>
 
             <div className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:border-primary/30 flex flex-col h-full">
-               <div className="mb-6 py-2 px-4 inline-flex rounded-lg bg-white/5 border border-white/10 w-max text-xs font-mono text-primary">import motion from "framer-motion"</div>
+              <div className="mb-6 py-2 px-4 inline-flex rounded-lg bg-white/5 border border-white/10 w-max text-xs font-mono text-primary">import motion from "framer-motion"</div>
               <h3 className="text-2xl font-bold mb-4">Framer Motion Mobile Stack</h3>
               <p className="text-on-surface-variant text-sm leading-relaxed mb-6 flex-grow">
                 The GSAP ticker is brilliant on desktop, but horizontal scrolling metrics drop radically on mobile browsers. Users hate swiping sideways.
@@ -256,7 +257,7 @@ export default function CaseStudy() {
         {/* Section 4: Conversion & Lead Gen */}
         <section className="reveal-section group">
           <div className="flex flex-col md:flex-row gap-6 mb-10">
-             <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary shrink-0 border border-primary/20">
+            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary shrink-0 border border-primary/20">
               <span className="material-symbols-outlined text-3xl">filter_alt</span>
             </div>
             <div>
@@ -271,7 +272,7 @@ export default function CaseStudy() {
             <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
               <span className="material-symbols-outlined text-[300px]">calendar_month</span>
             </div>
-            
+
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
                 <h3 className="text-2xl font-bold mb-4">The Frictionless Funnel</h3>
@@ -282,9 +283,9 @@ export default function CaseStudy() {
                   We engineered a zero-friction funnel. Every major section boundary (Hero, Service Array, Footer) includes an aggressive, primary-colored CTA button. More importantly, we injected glassmorphic "Schedule Consultation" triggers directly into the individual industry cards.
                 </p>
               </div>
-              
+
               <div className="space-y-6">
-                 <div className="p-6 bg-surface border border-outline-variant/20 rounded-2xl">
+                <div className="p-6 bg-surface border border-outline-variant/20 rounded-2xl">
                   <h4 className="text-lg font-bold text-black mb-2">Native Calendly Integration</h4>
                   <p className="text-sm text-on-surface-variant leading-relaxed">
                     Clicking a CTA does not redirect the user. Instead, it triggers a React state-driven Modal that blurs the background (`backdrop-blur-md`) and immutably locks the scrollbar hook. The Calendly widget paints directly in the foreground. High-value prospects can view real-time availability and lock in a discovery call without ever leaving the psychological context of the sales pitch.
@@ -307,9 +308,9 @@ export default function CaseStudy() {
           <p className="font-label text-sm uppercase tracking-[0.3em] text-on-surface-variant/70 mb-6">
             Architected, Designed, & Engineered By
           </p>
-          <a 
-            href="https://krishna77606.github.io/portfolio/" 
-            target="_blank" 
+          <a
+            href="https://krishna77606.github.io/portfolio/"
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-block font-headline text-3xl md:text-5xl font-black text-primary tracking-tighter transition-colors duration-500 relative group"
           >

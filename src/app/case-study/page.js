@@ -168,10 +168,16 @@ export default function CaseStudy() {
           <p className="font-label text-sm uppercase tracking-widest text-on-surface-variant">
             Architected & Engineered By
           </p>
-          <div className="font-headline text-xl md:text-2xl font-bold text-primary mt-4 tracking-tight">
+          <a 
+            href="https://krishna77606.github.io/portfolio/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block font-headline text-xl md:text-2xl font-bold text-primary mt-4 tracking-tight hover:text-white transition-colors duration-300 relative group"
+          >
             Krishnamurthy M Gokarnkar
-          </div>
-          <p className="text-sm text-on-surface-variant mt-2 italic">
+            <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-primary scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300"></span>
+          </a>
+          <p className="text-sm text-on-surface-variant mt-3 italic">
             Building the digital infrastructure for modern enterprises.
           </p>
         </div>

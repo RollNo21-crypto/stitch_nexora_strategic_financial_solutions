@@ -201,22 +201,22 @@ export default function Home() {
             </div>
             <div className="hidden md:flex items-center space-x-12">
               <a
-                className="text-xs font-bold text-on-surface hover:text-primary transition-colors tracking-widest uppercase"
-                href="#"
+                className="text-xs font-bold text-on-surface hover:text-primary transition-colors tracking-widest uppercase cursor-pointer"
+                onClick={(e) => { e.preventDefault(); document.getElementById('practice-section')?.scrollIntoView({ behavior: 'smooth' }); }}
               >
                 SERVICES
               </a>
               <a
-                className="text-xs font-bold text-on-surface hover:text-primary transition-colors tracking-widest uppercase"
-                href="#"
+                className="text-xs font-bold text-on-surface hover:text-primary transition-colors tracking-widest uppercase cursor-pointer"
+                onClick={(e) => { e.preventDefault(); document.getElementById('industries-section')?.scrollIntoView({ behavior: 'smooth' }); }}
               >
                 INDUSTRIES
               </a>
               <a
-                className="text-xs font-bold text-on-surface hover:text-primary transition-colors tracking-widest uppercase"
-                href="#"
+                className="text-xs font-bold text-on-surface hover:text-primary transition-colors tracking-widest uppercase cursor-pointer"
+                onClick={(e) => { e.preventDefault(); document.getElementById('integrating-section')?.scrollIntoView({ behavior: 'smooth' }); }}
               >
-                ABOUT
+                APPROACH
               </a>
             </div>
             <div className="flex items-center">
@@ -454,9 +454,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <IndustriesCarousel />
-
+        <div id="industries-section">
+          <IndustriesCarousel />
+        </div>
         {/* Our Approach (Asymmetrical Image Text) */}
         <section
           className="py-40 px-6 bg-surface relative"
@@ -517,10 +517,10 @@ export default function Home() {
               {/* Navigation Links */}
               <div className="flex flex-col space-y-4">
                 <p className="text-xs font-bold tracking-widest text-white mb-2">QUICK LINKS</p>
-                <a className="text-base text-[#e0e3e5]/70 hover:text-white transition-colors" href="#">Home</a>
-                <a className="text-base text-[#e0e3e5]/70 hover:text-white transition-colors" href="#" onClick={(e) => { e.preventDefault(); setCalendlyOpen(true); }}>Schedule A Call</a>
-                <a className="text-base text-[#e0e3e5]/70 hover:text-white transition-colors" href="#">Our Services</a>
-                <a className="text-base text-[#e0e3e5]/70 hover:text-white transition-colors" href="#">Contact Us</a>
+                <a className="text-base text-[#e0e3e5]/70 hover:text-white transition-colors cursor-pointer" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Home</a>
+                <a className="text-base text-[#e0e3e5]/70 hover:text-white transition-colors cursor-pointer" onClick={(e) => { e.preventDefault(); setCalendlyOpen(true); }}>Schedule A Call</a>
+                <a className="text-base text-[#e0e3e5]/70 hover:text-white transition-colors cursor-pointer" onClick={(e) => { e.preventDefault(); document.getElementById('practice-section')?.scrollIntoView({ behavior: 'smooth' }); }}>Our Services</a>
+                <a className="text-base text-[#e0e3e5]/70 hover:text-white transition-colors cursor-pointer" onClick={(e) => { e.preventDefault(); setCalendlyOpen(true); }}>Contact Us</a>
               </div>
               
               {/* Spacers - hidden on mobile */}

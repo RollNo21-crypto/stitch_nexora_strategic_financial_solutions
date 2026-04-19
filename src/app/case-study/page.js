@@ -257,14 +257,14 @@ export default function CaseStudy() {
               
               <div className="space-y-6">
                  <div className="p-6 bg-surface border border-outline-variant/20 rounded-2xl">
-                  <h4 className="text-lg font-bold text-white mb-2">Native Calendly Integration</h4>
+                  <h4 className="text-lg font-bold text-black mb-2">Native Calendly Integration</h4>
                   <p className="text-sm text-on-surface-variant leading-relaxed">
                     Clicking a CTA does not redirect the user. Instead, it triggers a React state-driven Modal that blurs the background (`backdrop-blur-md`) and immutably locks the scrollbar hook. The Calendly widget paints directly in the foreground. High-value prospects can view real-time availability and lock in a discovery call without ever leaving the psychological context of the sales pitch.
                   </p>
                 </div>
                 <div className="p-6 bg-surface border border-outline-variant/20 rounded-2xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-2 h-full bg-[#25D366]"></div>
-                  <h4 className="text-lg font-bold text-white mb-2">WhatsApp Quick-Launch Floater</h4>
+                  <h4 className="text-lg font-bold text-black mb-2">WhatsApp Quick-Launch Floater</h4>
                   <p className="text-sm text-on-surface-variant leading-relaxed">
                     B2B communication is shifting rapidly to instant messaging. A dynamic, globally persistent WhatsApp widget monitors the user's scroll depth and gracefully slides into the viewport. It implements a CSS heartbeat animation to capture peripheral attention, offering a one-tap pipeline to your sales team's phone.
                   </p>
